@@ -26,7 +26,7 @@ public class WalkInPlanetAddon : MonoBehaviour
         body.rotation = Quaternion.Slerp(body.rotation, targetRotation, 7 * Time.deltaTime);
         //body.rotation = targetRotation;
 
-        Debug.DrawLine(transform.position, body.position - point, Color.blue);
+        Debug.DrawLine(bodyUp, body.position - point, Color.blue);
     }
 
     void AlignToSurfaceNormal(Transform body, CGF cgf)
@@ -63,6 +63,7 @@ public class WalkInPlanetAddon : MonoBehaviour
     {
         if (rigid.name == this.name && rigid.tag == this.tag && rigid.gameObject == gameObject)
         {
+            rigid.useGravity = false;
             Transform body = rigid.GetComponent<Transform>(); // Body transform
             FixRotation(body, cgf); // Modify body transform rotation
             //AlignToSurfaceNormal(body, cgf);

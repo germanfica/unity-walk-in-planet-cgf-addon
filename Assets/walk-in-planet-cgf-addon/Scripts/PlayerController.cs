@@ -35,16 +35,6 @@ namespace xyz.germanfica.unity.planet.gravity
             {
                 canJump = true;
             }
-
-            try
-            {
-                anim = GetComponent<Animator>();
-            }
-            catch
-            {
-                Debug.LogError("Animator component is missing.");
-                vThirdPersonController = false;
-            }
         }
 
         void FixedUpdate()
@@ -65,6 +55,18 @@ namespace xyz.germanfica.unity.planet.gravity
             else
             {
                 rig.constraints = RigidbodyConstraints.None;
+            }
+
+            if (vThirdPersonController)
+            {
+                try
+                {
+                    anim = GetComponent<Animator>();
+                }
+                catch
+                {
+                    Debug.LogError("Animator component is missing.");
+                }
             }
         }
 

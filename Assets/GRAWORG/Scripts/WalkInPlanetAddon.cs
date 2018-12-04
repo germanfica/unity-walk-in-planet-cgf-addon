@@ -20,7 +20,7 @@ public class WalkInPlanetAddon : MonoBehaviour
         Vector3 bodyUp = body.up;
 
         //Quaternion targetRotation = Quaternion.FromToRotation(bodyUp, gravityUp) * body.rotation;
-        Quaternion targetRotation = Quaternion.FromToRotation(bodyUp, body.position - point) * body.rotation;
+        Quaternion targetRotation = Quaternion.FromToRotation(bodyUp, body.position - point) * body.rotation; // Y ESTA TAMB ES LA CLAVEEEEEEE
 
 
         body.rotation = Quaternion.Slerp(body.rotation, targetRotation, 7 * Time.deltaTime);

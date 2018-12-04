@@ -8,7 +8,7 @@ public class AlignToSurfaceNormal : MonoBehaviour {
     void Update()
     {
         RaycastHit hit;
-        //var hit : RaycastHit;
+        
         Vector3 castPos = new Vector3(this.transform.position.x, this.transform.position.y - .25f, this.transform.position.z);
         if (Physics.Raycast(castPos, -transform.up, out hit))
         {

@@ -418,7 +418,7 @@ MonoBehaviour:
   projectForward: 0
   size: 10
   capsuleRadius: 2
-  boxSize: {x: 8.72, y: 7.76, z: 6.67}
+  boxSize: {x: 8.72, y: 7.76, z: 8.26}
   forcePower: -9.8
   velocityDamping: 0
   angularVelocityDamping: 0

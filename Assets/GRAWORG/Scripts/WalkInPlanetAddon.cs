@@ -28,13 +28,13 @@ public class WalkInPlanetAddon : MonoBehaviour
     {
         RaycastHit hit;
         Transform planet = cgf.transform;
-        Vector3 gravityUp = (body.position - planet.transform.position).normalized;
-        Debug.DrawLine(body.position, gravityUp, Color.blue);
+        Vector3 gravityUp = body.position+(body.position + planet.transform.position).normalized;
+        //Debug.DrawLine(body.position, gravityUp, Color.blue);
 
         Vector3 castPos = new Vector3(body.transform.position.x, body.transform.position.y - .25f, body.transform.position.z);
         if (Physics.Raycast(castPos, -transform.up, out hit))
         {
-
+            Debug.DrawLine(body.position, hit.normal, Color.blue);
             body.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
 
             //Quaternion targetRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);

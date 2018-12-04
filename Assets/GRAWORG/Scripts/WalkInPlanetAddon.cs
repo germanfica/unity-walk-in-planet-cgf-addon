@@ -34,7 +34,11 @@ public class WalkInPlanetAddon : MonoBehaviour
         Vector3 castPos = new Vector3(body.transform.position.x, body.transform.position.y - .25f, body.transform.position.z);
         if (Physics.Raycast(castPos, -transform.up, out hit))
         {
-            Debug.DrawLine(body.position, hit.normal, Color.blue);
+            //Debug.DrawLine(body.position, hit.normal, Color.blue);
+            var point = cgf.FindClosestPoints(body.position, cgf._forcePositionProperties.ClosestColliders); // LA CLAVEEEEEE
+
+            Debug.DrawLine(body.position, point, Color.blue);
+
             body.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
 
             //Quaternion targetRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);

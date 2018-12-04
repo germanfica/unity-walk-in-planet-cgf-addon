@@ -12,6 +12,10 @@ namespace xyz.germanfica.unity.planet.gravity
         public int forceConst = 4;
         private bool canJump;
 
+        private Animator anim;
+        private bool MOVING;
+        private bool ROTATING;
+
         void Start()
         {
             Ini();
@@ -29,6 +33,7 @@ namespace xyz.germanfica.unity.planet.gravity
             {
                 canJump = true;
             }
+            anim = GetComponent<Animator>();
         }
 
         void FixedUpdate()
@@ -64,6 +69,19 @@ namespace xyz.germanfica.unity.planet.gravity
                 // AddForceAtPosition (useless too)
                 //rig.AddForceAtPosition(new Vector3(0, 0, forceConst), rig.transform.position, ForceMode.Impulse);
                 // AddRelativeForce (successful)
+
+                // Jump animation
+                // trigger jump animations
+                Vector2 input = new Vector2(anim.GetFloat(0), anim.GetFloat(1));
+                if (input.sqrMagnitude < 0.1f)
+                {
+                    anim.CrossFadeInFixedTime("Jump", 0.1f);
+                }
+                else
+                {
+                    anim.CrossFadeInFixedTime("JumpMove", .2f);
+                }
+
                 rig.AddRelativeForce(0, forceConst, 0, ForceMode.Impulse);
             }
         }
@@ -74,6 +92,26 @@ namespace xyz.germanfica.unity.planet.gravity
         {
             var x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
             var z = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f;
+
+            Debug.Log("x value: "+z);
+
+            // condition ? consequence : alternative
+            MOVING = z > 0 ? MOVING = true : MOVING = false;
+            ROTATING = x > 0 ? ROTATING = true : ROTATING = false;
+
+            //Debug.Log("Is moving? " + MOVING);
+
+            // Movement Animation
+            if (MOVING)
+            {
+                // Move animation
+                anim.SetFloat("InputMagnitude", 1, 0.25f, Time.deltaTime); // 1 si el personaje se mueve
+            }
+            else
+            {
+                // Unmove animation
+                anim.SetFloat("InputMagnitude", 0, 0.25f, Time.deltaTime); // 0 si el personaje no se mueve
+            }
 
             transform.Rotate(0, x, 0);
             transform.Translate(0, 0, z);

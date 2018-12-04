@@ -3362,7 +3362,7 @@ MonoBehaviour:
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
   rollInput:
-    useInput: 1
+    useInput: 0
     isAxisInUse: 0
     keyboard: Q
     keyboardAxis: 0
@@ -3374,7 +3374,7 @@ MonoBehaviour:
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
   strafeInput:
-    useInput: 1
+    useInput: 0
     isAxisInUse: 0
     keyboard: Tab
     keyboardAxis: 0
@@ -3386,7 +3386,7 @@ MonoBehaviour:
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
   sprintInput:
-    useInput: 1
+    useInput: 0
     isAxisInUse: 0
     keyboard: LeftShift
     keyboardAxis: 0
@@ -3398,7 +3398,7 @@ MonoBehaviour:
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
   crouchInput:
-    useInput: 1
+    useInput: 0
     isAxisInUse: 0
     keyboard: C
     keyboardAxis: 0
@@ -3413,7 +3413,7 @@ MonoBehaviour:
   ignoreCameraRotation: 0
   rotateToCameraWhileStrafe: 1
   rotateCameraXInput:
-    useInput: 1
+    useInput: 0
     isAxisInUse: 0
     keyboard: Mouse X
     keyboardAxis: 0
@@ -3425,7 +3425,7 @@ MonoBehaviour:
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
   rotateCameraYInput:
-    useInput: 1
+    useInput: 0
     isAxisInUse: 0
     keyboard: Mouse Y
     keyboardAxis: 0
@@ -3437,7 +3437,7 @@ MonoBehaviour:
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
   cameraZoomInput:
-    useInput: 1
+    useInput: 0
     isAxisInUse: 0
     keyboard: Mouse ScrollWheel
     keyboardAxis: 0
